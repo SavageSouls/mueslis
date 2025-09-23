@@ -3,6 +3,12 @@ import React, { Component } from "react";
 import '../App.css';
 
 export default class MueslisPage extends Component{
+    state ={
+        muesliData:{
+            result:[]
+        }
+    }
+
     render(){
         return(
             <div>
