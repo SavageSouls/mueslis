@@ -1,25 +1,28 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
 
 export default class App extends React.Component{
   state = {
-    muesliData: null
+    muesliData: {
+      result:[]
+    }
   }
   render(){
     return(
       <div className='page-container'>
         <nav id="navbar" title="Toggle menu width">
-          <div className="menu-item" tabindex="0" data-content="products">
+          <div className="menu-item" tabIndex="0" data-content="products">
             <span className="menu-icon">📦</span>
             <span className="menu-text">Products</span>
           </div>
-          <div className="menu-item" tabindex="0" data-content="prices">
+          <div className="menu-item" tabIndex="0" data-content="prices">
             <span className="menu-icon">💰</span>
             <span className="menu-text">Prices</span>
           </div>
-          <div className="menu-item" tabindex="0" data-content="about">
+          <div className="menu-item" tabIndex="0" data-content="about">
             <span className="menu-icon">ℹ️</span>
             <span className="menu-text">About</span>
           </div>
@@ -37,9 +40,11 @@ export default class App extends React.Component{
             </tr>
           </thead>
           <tbody>
-            {/* <tr><td>1</td><td>Classic Muesli</td><td>$4.65</td></tr> */}
-            {/*JSON.stringify(this.state.muesliData)*/}
-            {this.state.muesliData.result.map()}
+            {this.state.muesliData.result.map(muesli=><tr key={muesli.id}>
+              <td>{muesli.id}</td>
+              <td>{muesli.name}</td>
+              <td>{muesli.price}</td>
+            </tr>)}
           </tbody>
         </table>
       </main>
